@@ -20,7 +20,6 @@ export interface LightningPayment {
 
 class LightningService {
   private apiUrl = process.env.NEXT_PUBLIC_LNBITS_URL || "https://demo.lnbits.com"
-  private apiKey = process.env.NEXT_PUBLIC_LNBITS_API_KEY || ""
 
   async createInvoice(amount: number, description: string): Promise<LightningInvoice> {
     try {
