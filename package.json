@@ -9,6 +9,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@dynamic-labs/sdk-react-core": "^2.0.0",
+    "@dynamic-labs/bitcoin": "^2.0.0",
+    "@dynamic-labs/wallet-connector-core": "^2.0.0",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "latest",
     "@radix-ui/react-alert-dialog": "latest",

@@ -5,12 +5,19 @@
 [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![Dynamic SDK](https://img.shields.io/badge/Dynamic-SDK-purple?style=for-the-badge)](https://dynamic.xyz/)
 
 **Learn Bitcoin. Earn Sats. Get zkCertificates.**
 
-A comprehensive Bitcoin education platform that rewards learning with real Bitcoin and issues verifiable zkCertificates on the Citrea network. Built for the HER DAO Citrea Hackathon.
+A comprehensive Bitcoin education platform that rewards learning with real Bitcoin and issues verifiable zkCertificates on the Citrea network. Built for the HER DAO Citrea Hackathon with seamless wallet authentication via Dynamic SDK.
 
 ## 🌟 Features
+
+### 🔐 **Dynamic Wallet Authentication**
+- **Multi-wallet Support** via Dynamic SDK (Xverse, Hiro, Leather, UniSat)
+- **Seamless Connection** with automatic session management
+- **Secure Authentication** without exposing private keys
+- **Onboarding Flow** for new users with guided setup
 
 ### 📚 **Interactive Learning**
 - **11 Comprehensive Courses** covering Bitcoin fundamentals to advanced topics
@@ -21,7 +28,7 @@ A comprehensive Bitcoin education platform that rewards learning with real Bitco
 ### 💰 **Bitcoin Rewards**
 - **Earn Real Sats** for completing courses and quizzes
 - **Lightning Network Integration** for instant micropayments
-- **Wallet Integration** with Alby Wallet support
+- **Wallet Integration** with connected Bitcoin wallets
 - **Auto-claim Rewards** with customizable settings
 
 ### 🏆 **zkCertificates**
@@ -29,12 +36,6 @@ A comprehensive Bitcoin education platform that rewards learning with real Bitco
 - **Zero-Knowledge Proofs** for privacy-preserving verification
 - **IPFS Storage** for decentralized certificate metadata
 - **Shareable Certificates** with unique verification links
-
-### 🔐 **Wallet & Security**
-- **Multi-wallet Support** (Alby, hardware wallets)
-- **Citrea Network Integration** for L2 transactions
-- **Bridge Functionality** between Bitcoin and Citrea
-- **Secure Key Management** with best practices
 
 ### ⚙️ **Advanced Features**
 - **Responsive Design** optimized for all devices
@@ -46,8 +47,9 @@ A comprehensive Bitcoin education platform that rewards learning with real Bitco
 
 ### Prerequisites
 - Node.js 18+ and npm/yarn
+- Dynamic SDK account for wallet authentication
 - Supabase account for database
-- Alby Wallet or compatible Bitcoin wallet
+- Bitcoin wallet (Xverse, Hiro, etc.)
 
 ### Installation
 
@@ -71,6 +73,9 @@ A comprehensive Bitcoin education platform that rewards learning with real Bitco
 
    Configure the following variables:
    \`\`\`env
+   # Dynamic SDK Configuration
+   NEXT_PUBLIC_DYNAMIC_ENVIRONMENT_ID=your_dynamic_environment_id
+
    # Supabase Configuration
    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
@@ -79,35 +84,80 @@ A comprehensive Bitcoin education platform that rewards learning with real Bitco
    # Citrea Network
    NEXT_PUBLIC_CITREA_RPC_URL=https://rpc.citrea.xyz
    NEXT_PUBLIC_CITREA_CONTRACT_ADDRESS=your_contract_address
-
-   # Lightning Network (LNbits)
-   NEXT_PUBLIC_LNBITS_URL=your_lnbits_instance
-   NEXT_PUBLIC_LNBITS_API_KEY=your_api_key
    \`\`\`
 
-4. **Set up the database**
+4. **Set up Dynamic SDK**
+   - Create account at [Dynamic.xyz](https://app.dynamic.xyz)
+   - Create new project and get Environment ID
+   - Configure Bitcoin wallet connectors
+   - Add your domain to allowed origins
+
+5. **Set up the database**
    \`\`\`bash
    # Run the database migration
    npm run db:setup
    \`\`\`
 
-5. **Start the development server**
+6. **Start the development server**
    \`\`\`bash
    npm run dev
    # or
    yarn dev
    \`\`\`
 
-6. **Open your browser**
+7. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🔐 Dynamic SDK Integration
+
+### Wallet Authentication Flow
+
+1. **User clicks "Connect Wallet"**
+2. **Dynamic widget appears** with supported Bitcoin wallets
+3. **User selects wallet** (Xverse, Hiro, Leather, UniSat)
+4. **Wallet connection** is established securely
+5. **Session created** and user redirected to dashboard
+6. **Onboarding modal** shows for new users
+
+### Supported Wallets
+
+- **Xverse** - Bitcoin & Ordinals wallet
+- **Hiro** - Stacks & Bitcoin wallet  
+- **Leather** - Bitcoin & Stacks wallet
+- **UniSat** - Bitcoin & Ordinals wallet
+
+### Usage Example
+
+\`\`\`tsx
+import { DynamicWalletAuth, useWalletAuth } from '@/components/dynamic-wallet-auth'
+
+function MyComponent() {
+  const { isConnected, walletAddress, walletType } = useWalletAuth()
+  
+  return (
+    <div>
+      {isConnected ? (
+        <p>Connected: {walletAddress}</p>
+      ) : (
+        <DynamicWalletAuth 
+          onSuccess={(walletUser) => {
+            console.log('Wallet connected:', walletUser)
+          }}
+          redirectToDashboard={true}
+        />
+      )}
+    </div>
+  )
+}
+\`\`\`
 
 ## 🏗️ Architecture
 
 ### Tech Stack
 - **Frontend**: Next.js 14, React 18, TypeScript
+- **Wallet Auth**: Dynamic SDK for Bitcoin wallets
 - **Styling**: Tailwind CSS, shadcn/ui components
 - **Database**: Supabase (PostgreSQL)
-- **Authentication**: Supabase Auth
 - **Blockchain**: Citrea (Bitcoin L2), Bitcoin Lightning Network
 - **Storage**: IPFS for certificate metadata
 - **Deployment**: Vercel
@@ -123,46 +173,26 @@ proof-of-learn/
 │   └── settings/          # User settings
 ├── components/            # React components
 │   ├── ui/               # shadcn/ui components
+│   ├── dynamic-wallet-auth.tsx  # Wallet authentication
+│   ├── dynamic-provider.tsx     # Dynamic SDK provider
 │   ├── dashboard.tsx     # Main dashboard
-│   ├── course-page.tsx   # Course interface
-│   └── wallet-panel.tsx  # Wallet management
+│   └── course-page.tsx   # Course interface
 ├── lib/                  # Utility libraries
+│   ├── dynamic-config.ts # Dynamic SDK configuration
 │   ├── supabase.ts       # Database client
 │   ├── citrea-sdk.ts     # Citrea integration
-│   ├── lightning.ts      # Lightning Network
 │   └── course-content.ts # Course data
-├── hooks/                # Custom React hooks
-└── api/                  # API routes
+└── hooks/                # Custom React hooks
 \`\`\`
 
-## 📖 Course Content
-
-### Available Tracks
-1. **Beginner Track** (5 courses)
-   - Bitcoin Origins & Philosophy
-   - Wallets & Custody
-   - Security & Scam Prevention
-   - Lightning Network Basics
-   - Bitcoin Economics
-
-2. **Intermediate Track** (4 courses)
-   - Technical Deep Dive
-   - Mining & Consensus
-   - Privacy & Fungibility
-   - DeFi on Bitcoin
-
-3. **Advanced Track** (2 courses)
-   - Bitcoin Development
-   - Layer 2 Solutions
-
-### Learning Objectives
-- Understand Bitcoin's history and philosophy
-- Master wallet security and custody practices
-- Learn about Lightning Network and scaling
-- Explore Bitcoin's economic principles
-- Develop technical Bitcoin knowledge
-
 ## 🔧 Configuration
+
+### Dynamic SDK Setup
+1. Create account at [Dynamic.xyz](https://app.dynamic.xyz)
+2. Create new project for Bitcoin wallets
+3. Configure wallet connectors in dashboard
+4. Add environment ID to `.env.local`
+5. Customize UI theme and branding
 
 ### Supabase Setup
 1. Create a new Supabase project
@@ -176,42 +206,35 @@ proof-of-learn/
 3. Set up RPC endpoint
 4. Test certificate minting
 
-### Lightning Network
-1. Set up LNbits instance or use hosted service
-2. Configure wallet and API keys
-3. Test payment flows
-4. Set up webhook endpoints
-
 ## 🎯 Usage
 
 ### For Learners
-1. **Connect Wallet**: Link your Alby or compatible Bitcoin wallet
+1. **Connect Wallet**: Use Dynamic widget to connect Bitcoin wallet
 2. **Start Learning**: Choose a course track and begin your journey
 3. **Take Quizzes**: Test your knowledge and earn sats
 4. **Earn Certificates**: Complete courses to mint zkCertificates
 5. **Track Progress**: Monitor your XP, streaks, and achievements
 
-### For Educators
-1. **Content Management**: Add new courses and quiz questions
-2. **Progress Monitoring**: Track learner engagement and completion
-3. **Certificate Verification**: Verify issued zkCertificates
-4. **Analytics**: View learning analytics and insights
+### For Developers
+1. **Wallet Integration**: Use Dynamic SDK for seamless wallet auth
+2. **Session Management**: Automatic session handling and persistence
+3. **Event Tracking**: Built-in analytics for wallet connections
+4. **Custom Styling**: HER DAO themed UI components
 
 ## 🔐 Security
 
+### Wallet Security
+- **Private keys never leave wallet** - only public addresses used
+- **Secure session management** with automatic timeout
+- **No sensitive data storage** on servers
+- **Cryptographic verification** for all transactions
+
 ### Best Practices Implemented
-- **Private Key Security**: Never store private keys on servers
 - **Environment Variables**: Sensitive data in environment variables
 - **Input Validation**: All user inputs validated and sanitized
 - **Rate Limiting**: API endpoints protected against abuse
 - **HTTPS Only**: All communications encrypted
 - **Row-Level Security**: Database access controlled by policies
-
-### Wallet Security
-- **Hardware Wallet Support**: Integration with Ledger, Trezor
-- **Seed Phrase Education**: Teaching proper backup practices
-- **Multi-signature Options**: Support for advanced security setups
-- **Cold Storage Guidance**: Best practices for long-term storage
 
 ## 🤝 Contributing
 
@@ -224,74 +247,19 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 4. Add tests if applicable
 5. Submit a pull request
 
-### Code Style
-- Use TypeScript for all new code
-- Follow the existing code style
-- Use Prettier for formatting
-- Write meaningful commit messages
-
-## 📊 Analytics & Metrics
-
-### Learning Analytics
-- Course completion rates
-- Quiz performance metrics
-- Time spent learning
-- Popular content areas
-- User engagement patterns
-
-### Bitcoin Metrics
-- Sats earned and distributed
-- Certificate minting statistics
-- Wallet connection rates
-- Lightning payment success rates
-
 ## 🚀 Deployment
 
 ### Vercel Deployment
 1. Connect your GitHub repository to Vercel
-2. Configure environment variables
+2. Configure environment variables including Dynamic SDK
 3. Deploy with automatic CI/CD
 
-### Manual Deployment
-\`\`\`bash
-# Build the application
-npm run build
-
-# Start production server
-npm start
-\`\`\`
-
-### Environment Setup
-- Production database configuration
-- SSL certificate setup
-- CDN configuration for assets
-- Monitoring and logging setup
-
-## 🔮 Roadmap
-
-### Phase 1 (Current)
-- ✅ Core learning platform
-- ✅ Bitcoin wallet integration
-- ✅ zkCertificate minting
-- ✅ Lightning Network rewards
-
-### Phase 2 (Q2 2024)
-- 🔄 Advanced course content
-- 🔄 Social learning features
-- 🔄 Mobile app development
-- 🔄 Multi-language support
-
-### Phase 3 (Q3 2024)
-- 📋 Corporate training modules
-- 📋 API for third-party integrations
-- 📋 Advanced analytics dashboard
-- 📋 Gamification features
-
-### Phase 4 (Q4 2024)
-- 📋 AI-powered learning paths
-- 📋 VR/AR learning experiences
-- 📋 Advanced DeFi integrations
-- 📋 Global expansion
+### Environment Variables
+Make sure to set all required environment variables:
+- `NEXT_PUBLIC_DYNAMIC_ENVIRONMENT_ID`
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- Other configuration as needed
 
 ## 📄 License
 
@@ -299,27 +267,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
+- **Dynamic Labs** for the excellent wallet authentication SDK
 - **HER DAO** for organizing the Citrea Hackathon
 - **Citrea Team** for the innovative Bitcoin L2 solution
 - **Bitcoin Community** for the educational content and inspiration
-- **Open Source Contributors** who made this project possible
-
-## 📞 Support
-
-### Community
-- **Discord**: [Join our community](https://discord.gg/proof-of-learn)
-- **Twitter**: [@ProofOfLearn](https://twitter.com/ProofOfLearn)
-- **Telegram**: [Proof of Learn Group](https://t.me/ProofOfLearn)
-
-### Technical Support
-- **GitHub Issues**: Report bugs and request features
-- **Documentation**: [docs.proofoflearn.com](https://docs.proofoflearn.com)
-- **Email**: support@proofoflearn.com
-
-### Educational Resources
-- **Bitcoin Whitepaper**: [bitcoin.org/bitcoin.pdf](https://bitcoin.org/bitcoin.pdf)
-- **Lightning Network**: [lightning.network](https://lightning.network)
-- **Citrea Documentation**: [docs.citrea.xyz](https://docs.citrea.xyz)
 
 ---
 

@@ -8,20 +8,21 @@ import { Input } from "@/components/ui/input"
 import { Zap, Shield, Award, BookOpen, Wallet } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { WalletConnector } from "@/components/wallet-connector"
+import { DynamicWalletAuth, useWalletAuth } from "@/components/dynamic-wallet-auth"
 import { useAuth } from "@/lib/auth-context"
 
 export function LandingPage() {
-  const [showWalletConnector, setShowWalletConnector] = useState(false)
+  const [showWalletAuth, setShowWalletAuth] = useState(false)
   const [email, setEmail] = useState("")
   const { user } = useAuth()
+  const { isConnected } = useWalletAuth()
   const router = useRouter()
 
   const handleGetStarted = () => {
-    if (user) {
+    if (user || isConnected) {
       router.push("/dashboard")
     } else {
-      setShowWalletConnector(true)
+      setShowWalletAuth(true)
     }
   }
 
@@ -60,7 +61,7 @@ export function LandingPage() {
                   onClick={handleGetStarted}
                 >
                   <Wallet className="mr-2 h-5 w-5" />
-                  {user ? "Go to Dashboard" : "Connect Wallet to Begin"}
+                  {user || isConnected ? "Go to Dashboard" : "Connect Wallet to Begin"}
                 </Button>
                 <Button
                   size="lg"
@@ -85,6 +86,37 @@ export function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Wallet Authentication Modal */}
+      {showWalletAuth && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-900 rounded-lg border-2 border-purple-400/50 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-white text-xl font-bold">Connect Your Wallet</h2>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setShowWalletAuth(false)}
+                  className="text-gray-400 hover:text-white"
+                >
+                  ✕
+                </Button>
+              </div>
+              <DynamicWalletAuth
+                onSuccess={() => {
+                  setShowWalletAuth(false)
+                }}
+                onError={(error) => {
+                  console.error("Wallet connection failed:", error)
+                }}
+                showOnboarding={true}
+                redirectToDashboard={true}
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* How It Works Section */}
       <section className="py-20 bg-black/20">
@@ -180,7 +212,7 @@ export function LandingPage() {
             <h3 className="text-2xl font-bold text-white mb-4">Powered By</h3>
           </div>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-70">
-            {["Citrea", "HER DAO"].map((partner) => (
+            {["Citrea"].map((partner) => (
               <div key={partner} className="text-purple-200 font-semibold text-lg">
                 {partner}
               </div>
@@ -231,8 +263,6 @@ export function LandingPage() {
           </div>
         </div>
       </footer>
-
-      <WalletConnector isOpen={showWalletConnector} onClose={() => setShowWalletConnector(false)} />
     </div>
   )
 }
