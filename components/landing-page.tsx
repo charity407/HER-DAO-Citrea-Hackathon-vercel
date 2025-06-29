@@ -180,7 +180,7 @@ export function LandingPage() {
             <h3 className="text-2xl font-bold text-white mb-4">Powered By</h3>
           </div>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-70">
-            {["Citrea", "HER DAO", "Qala", "Bitcoin Dada", "Spiral"].map((partner) => (
+            {["Citrea", "HER DAO"].map((partner) => (
               <div key={partner} className="text-purple-200 font-semibold text-lg">
                 {partner}
               </div>
