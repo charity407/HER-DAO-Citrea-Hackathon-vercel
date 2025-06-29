@@ -101,7 +101,7 @@ export function Dashboard() {
               <p className="text-purple-200 text-sm md:text-base">Ready to continue your Bitcoin journey?</p>
             </div>
 
-            {/* Stats Grid - Mobile optimized */}
+            {/* Stats Grid - High contrast text */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
               <Card className="bg-gradient-to-br from-orange-600/30 to-yellow-600/30 border-2 border-orange-400/50 backdrop-blur-sm">
                 <CardHeader className="pb-2 p-3 md:p-6">
@@ -109,7 +109,7 @@ export function Dashboard() {
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
                   <div className="text-lg md:text-2xl font-bold text-white">{satsEarned.toLocaleString()}</div>
-                  <p className="text-orange-200 text-xs">From learning</p>
+                  <p className="text-white text-xs font-medium">From learning</p>
                 </CardContent>
               </Card>
 
@@ -120,7 +120,7 @@ export function Dashboard() {
                 <CardContent className="p-3 md:p-6 pt-0">
                   <div className="text-lg md:text-2xl font-bold text-white">{totalXP}</div>
                   <Progress value={(totalXP % 1000) / 10} className="mt-2 h-1 md:h-2" />
-                  <p className="text-purple-200 text-xs">
+                  <p className="text-white text-xs font-medium">
                     {Math.round((completedModules.length / courseContent.length) * 100)}% complete
                   </p>
                 </CardContent>
@@ -134,7 +134,7 @@ export function Dashboard() {
                   <div className="text-lg md:text-2xl font-bold text-white">
                     {completedModules.length}/{courseContent.length}
                   </div>
-                  <p className="text-green-200 text-xs">
+                  <p className="text-white text-xs font-medium">
                     {Math.round((completedModules.length / courseContent.length) * 100)}% complete
                   </p>
                 </CardContent>
@@ -146,7 +146,7 @@ export function Dashboard() {
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
                   <div className="text-lg md:text-2xl font-bold text-white">{user?.current_streak || 1} days</div>
-                  <p className="text-blue-200 text-xs">Keep it up! 🔥</p>
+                  <p className="text-white text-xs font-medium">Keep it up! 🔥</p>
                 </CardContent>
               </Card>
             </div>
@@ -160,7 +160,7 @@ export function Dashboard() {
                       <Zap className="h-5 w-5 text-pink-300" />
                       Your Next Mission
                     </CardTitle>
-                    <CardDescription className="text-purple-200 text-sm">Continue your Bitcoin education journey</CardDescription>
+                    <CardDescription className="text-white text-sm">Continue your Bitcoin education journey</CardDescription>
                   </CardHeader>
                   <CardContent className="p-4 md:p-6 pt-0">
                     <div className="space-y-4">
@@ -168,7 +168,7 @@ export function Dashboard() {
                         <h3 className="text-white font-semibold text-sm md:text-base">
                           {nextModule ? nextModule.title : "All modules completed!"}
                         </h3>
-                        <p className="text-purple-200 text-xs md:text-sm mt-1">
+                        <p className="text-white text-xs md:text-sm mt-1">
                           {nextModule ? nextModule.objective : "Congratulations on completing all available modules!"}
                         </p>
                       </div>

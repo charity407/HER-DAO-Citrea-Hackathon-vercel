@@ -40,16 +40,16 @@ export function BridgeUI() {
       <div className="flex">
         <Sidebar />
 
-        <main className="flex-1 p-8">
+        <main className="flex-1 p-4 md:p-8 pt-16 md:pt-8">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-white mb-2">Bridge BTC to Citrea</h1>
-              <p className="text-purple-200">Bridge your Bitcoin to Citrea's ZK-Rollup using Clementine</p>
+            <div className="mb-6 md:mb-8">
+              <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">Bridge BTC to Citrea</h1>
+              <p className="text-purple-200 text-sm md:text-base">Bridge your Bitcoin to Citrea's ZK-Rollup using Clementine</p>
             </div>
 
             {/* Testnet Warning */}
-            <Alert className="mb-8 bg-yellow-500/10 border-yellow-500/30">
+            <Alert className="mb-6 md:mb-8 bg-yellow-500/10 border-yellow-500/30">
               <AlertTriangle className="h-4 w-4 text-yellow-500" />
               <AlertDescription className="text-yellow-200">
                 <strong>Testnet Only:</strong> This bridge is currently running on Bitcoin testnet. Use testnet BTC
@@ -61,34 +61,34 @@ export function BridgeUI() {
               </AlertDescription>
             </Alert>
 
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
               {/* Bridge Form */}
               <Card className="bg-black/30 border-purple-700">
-                <CardHeader>
-                  <CardTitle className="text-white flex items-center gap-2">
+                <CardHeader className="p-4 md:p-6">
+                  <CardTitle className="text-white flex items-center gap-2 text-lg md:text-xl">
                     <Bridge className="h-5 w-5 text-pink-400" />
                     Bridge to Citrea
                   </CardTitle>
-                  <CardDescription className="text-purple-200">
+                  <CardDescription className="text-purple-200 text-sm">
                     Convert BTC to cBTC on Citrea's ZK-Rollup
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6 pt-0">
                   {/* From Section */}
                   <div className="space-y-3">
-                    <Label className="text-white">From: Bitcoin Network</Label>
+                    <Label className="text-white text-sm">From: Bitcoin Network</Label>
                     <div className="p-4 bg-orange-500/10 rounded-lg border border-orange-400/30">
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2">
                           <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
                             <span className="text-white font-bold text-sm">₿</span>
                           </div>
-                          <span className="text-white font-medium">Bitcoin</span>
+                          <span className="text-white font-medium text-sm">Bitcoin</span>
                         </div>
-                        <Badge className="bg-orange-500 text-white">Mainnet</Badge>
+                        <Badge className="bg-orange-500 text-white text-xs">Mainnet</Badge>
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="amount" className="text-orange-200 text-sm">
+                        <Label htmlFor="amount" className="text-white text-sm">
                           Amount
                         </Label>
                         <Input
@@ -97,9 +97,9 @@ export function BridgeUI() {
                           placeholder="0.001"
                           value={bridgeAmount}
                           onChange={(e) => setBridgeAmount(e.target.value)}
-                          className="bg-black/30 border-orange-400/30 text-white placeholder:text-orange-300"
+                          className="bg-black/30 border-orange-400/30 text-white placeholder:text-orange-300 text-sm"
                         />
-                        <p className="text-orange-300 text-xs">Available: 0.00125 BTC</p>
+                        <p className="text-white text-xs font-medium">Available: 0.00125 BTC</p>
                       </div>
                     </div>
                   </div>
@@ -113,25 +113,25 @@ export function BridgeUI() {
 
                   {/* To Section */}
                   <div className="space-y-3">
-                    <Label className="text-white">To: Citrea Network</Label>
+                    <Label className="text-white text-sm">To: Citrea Network</Label>
                     <div className="p-4 bg-purple-500/10 rounded-lg border border-purple-400/30">
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2">
                           <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
                             <span className="text-white font-bold text-sm">C</span>
                           </div>
-                          <span className="text-white font-medium">Citrea</span>
+                          <span className="text-white font-medium text-sm">Citrea</span>
                         </div>
-                        <Badge className="bg-purple-500 text-white">ZK-Rollup</Badge>
+                        <Badge className="bg-purple-500 text-white text-xs">ZK-Rollup</Badge>
                       </div>
                       <div className="space-y-2">
-                        <Label className="text-purple-200 text-sm">You will receive</Label>
+                        <Label className="text-white text-sm">You will receive</Label>
                         <div className="p-3 bg-black/30 rounded border border-purple-400/30">
-                          <span className="text-white font-mono">
+                          <span className="text-white font-mono text-sm">
                             {bridgeAmount ? `${bridgeAmount} cBTC` : "0.000 cBTC"}
                           </span>
                         </div>
-                        <p className="text-purple-300 text-xs">1:1 conversion ratio</p>
+                        <p className="text-white text-xs font-medium">1:1 conversion ratio</p>
                       </div>
                     </div>
                   </div>
@@ -150,9 +150,9 @@ export function BridgeUI() {
                     <div className="flex items-start gap-2">
                       <Info className="h-4 w-4 text-blue-400 mt-0.5" />
                       <div className="text-sm">
-                        <p className="text-blue-200 font-medium">Bridge Fees:</p>
-                        <p className="text-blue-300">• Bitcoin network fee: ~1000 sats</p>
-                        <p className="text-blue-300">• Citrea bridge fee: 0.1%</p>
+                        <p className="text-white font-medium">Bridge Fees:</p>
+                        <p className="text-white">• Bitcoin network fee: ~1000 sats</p>
+                        <p className="text-white">• Citrea bridge fee: 0.1%</p>
                       </div>
                     </div>
                   </div>
@@ -161,15 +161,15 @@ export function BridgeUI() {
 
               {/* Bridge Status */}
               <Card className="bg-black/30 border-purple-700">
-                <CardHeader>
-                  <CardTitle className="text-white">Bridge Status</CardTitle>
-                  <CardDescription className="text-purple-200">Track your bridge transaction progress</CardDescription>
+                <CardHeader className="p-4 md:p-6">
+                  <CardTitle className="text-white text-lg md:text-xl">Bridge Status</CardTitle>
+                  <CardDescription className="text-purple-200 text-sm">Track your bridge transaction progress</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6 pt-0">
                   {bridgeStatus === "idle" ? (
                     <div className="text-center py-8">
                       <Bridge className="h-12 w-12 text-purple-400 mx-auto mb-4" />
-                      <p className="text-purple-200">Enter an amount to start bridging</p>
+                      <p className="text-purple-200 text-sm">Enter an amount to start bridging</p>
                     </div>
                   ) : (
                     <div className="space-y-4">
@@ -193,8 +193,8 @@ export function BridgeUI() {
                             )}
                           </div>
                           <div className="flex-1">
-                            <p className="text-white font-medium">BTC Transaction Sent</p>
-                            <p className="text-purple-300 text-sm">
+                            <p className="text-white font-medium text-sm">BTC Transaction Sent</p>
+                            <p className="text-purple-300 text-xs">
                               {getBridgeStepStatus(1) === "completed"
                                 ? "Transaction confirmed on Bitcoin network"
                                 : "Waiting for Bitcoin transaction..."}
@@ -222,8 +222,8 @@ export function BridgeUI() {
                             )}
                           </div>
                           <div className="flex-1">
-                            <p className="text-white font-medium">Processing on Citrea</p>
-                            <p className="text-purple-300 text-sm">
+                            <p className="text-white font-medium text-sm">Processing on Citrea</p>
+                            <p className="text-purple-300 text-xs">
                               {getBridgeStepStatus(2) === "completed"
                                 ? "ZK proof generated and verified"
                                 : getBridgeStepStatus(2) === "current"
@@ -253,8 +253,8 @@ export function BridgeUI() {
                             )}
                           </div>
                           <div className="flex-1">
-                            <p className="text-white font-medium">cBTC Received</p>
-                            <p className="text-purple-300 text-sm">
+                            <p className="text-white font-medium text-sm">cBTC Received</p>
+                            <p className="text-purple-300 text-xs">
                               {getBridgeStepStatus(3) === "completed"
                                 ? "cBTC successfully minted to your wallet"
                                 : "Waiting for processing..."}
@@ -305,31 +305,31 @@ export function BridgeUI() {
               </Card>
             </div>
 
-            {/* Info Cards */}
-            <div className="grid md:grid-cols-2 gap-6 mt-8">
+            {/* Info Cards - High contrast text */}
+            <div className="grid md:grid-cols-2 gap-4 md:gap-6 mt-6 md:mt-8">
               <Card className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-400/30">
-                <CardHeader>
-                  <CardTitle className="text-blue-400 text-lg">About Citrea Bridge</CardTitle>
+                <CardHeader className="p-4 md:p-6">
+                  <CardTitle className="text-white text-lg">About Citrea Bridge</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-blue-200 text-sm">
+                <CardContent className="space-y-3 p-4 md:p-6 pt-0">
+                  <p className="text-white text-sm">
                     Citrea's bridge uses zero-knowledge proofs to securely move Bitcoin to a ZK-rollup, enabling faster
                     transactions and smart contract functionality while maintaining Bitcoin's security.
                   </p>
                   <div className="space-y-2">
-                    <p className="text-blue-300 text-xs">• Trustless bridging via ZK proofs</p>
-                    <p className="text-blue-300 text-xs">• 1:1 BTC to cBTC conversion</p>
-                    <p className="text-blue-300 text-xs">• Powered by Clementine protocol</p>
+                    <p className="text-white text-xs">• Trustless bridging via ZK proofs</p>
+                    <p className="text-white text-xs">• 1:1 BTC to cBTC conversion</p>
+                    <p className="text-white text-xs">• Powered by Clementine protocol</p>
                   </div>
                 </CardContent>
               </Card>
 
               <Card className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-400/30">
-                <CardHeader>
-                  <CardTitle className="text-purple-400 text-lg">Coming Soon</CardTitle>
+                <CardHeader className="p-4 md:p-6">
+                  <CardTitle className="text-white text-lg">Coming Soon</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-purple-200 text-sm">
+                <CardContent className="space-y-3 p-4 md:p-6 pt-0">
+                  <p className="text-white text-sm">
                     Enhanced bridge features and mainnet launch are coming soon. Sign up to be notified when these
                     features become available.
                   </p>

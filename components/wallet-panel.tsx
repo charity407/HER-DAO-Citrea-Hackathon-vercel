@@ -68,7 +68,7 @@ export function WalletPanel() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <CardTitle className="text-white text-lg md:text-xl">{connectedWallet} Wallet</CardTitle>
-                      <CardDescription className="text-green-200 text-sm">Connected & Synced</CardDescription>
+                      <CardDescription className="text-white text-sm">Connected & Synced</CardDescription>
                     </div>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-2">
@@ -92,7 +92,7 @@ export function WalletPanel() {
               </CardHeader>
             </Card>
 
-            {/* Balance Cards - Mobile optimized */}
+            {/* Balance Cards - High contrast text */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-8">
               <Card className="bg-gradient-to-br from-orange-600/30 to-yellow-600/30 border-2 border-orange-400/50 backdrop-blur-sm">
                 <CardHeader className="pb-2 p-3 md:p-6">
@@ -100,7 +100,7 @@ export function WalletPanel() {
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
                   <div className="text-lg md:text-2xl font-bold text-white">{btcBalance} BTC</div>
-                  <p className="text-orange-200 text-xs">≈ ${(btcBalance * 45000).toLocaleString()}</p>
+                  <p className="text-white text-xs font-medium">≈ ${(btcBalance * 45000).toLocaleString()}</p>
                 </CardContent>
               </Card>
 
@@ -110,7 +110,7 @@ export function WalletPanel() {
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
                   <div className="text-lg md:text-2xl font-bold text-white">{cbtcBalance} cBTC</div>
-                  <p className="text-blue-200 text-xs">Citrea Network</p>
+                  <p className="text-white text-xs font-medium">Citrea Network</p>
                 </CardContent>
               </Card>
 
@@ -120,7 +120,7 @@ export function WalletPanel() {
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
                   <div className="text-lg md:text-2xl font-bold text-white">{satsEarned.toLocaleString()}</div>
-                  <p className="text-purple-200 text-xs">From learning rewards</p>
+                  <p className="text-white text-xs font-medium">From learning rewards</p>
                 </CardContent>
               </Card>
             </div>
