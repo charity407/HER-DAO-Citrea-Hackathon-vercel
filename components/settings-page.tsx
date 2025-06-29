@@ -207,8 +207,8 @@ export function SettingsPage() {
                         <div className="flex items-center gap-3">
                           <Wallet className="h-8 w-8 text-green-300" />
                           <div>
-                            <p className="text-white font-medium text-sm md:text-base">Primary Wallet</p>
-                            <p className="text-white text-sm">Alby Wallet - Connected</p>
+                            <p className="text-purple-900 font-bold text-sm md:text-base">Primary Wallet</p>
+                            <p className="text-purple-800 text-sm font-bold">Alby Wallet - Connected</p>
                           </div>
                         </div>
                         <Button
@@ -223,7 +223,7 @@ export function SettingsPage() {
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
                             <Label className="text-white text-sm">Auto-claim Rewards</Label>
-                            <p className="text-white text-sm">Automatically claim sats when earned</p>
+                            <p className="text-purple-100 text-sm">Automatically claim sats when earned</p>
                           </div>
                           <Switch
                             checked={preferences.autoClaimRewards}
@@ -275,7 +275,7 @@ export function SettingsPage() {
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
                             <Label className="text-white text-sm">Course Completion</Label>
-                            <p className="text-white text-sm">Get notified when you complete a module</p>
+                            <p className="text-purple-100 text-sm">Get notified when you complete a module</p>
                           </div>
                           <Switch
                             checked={notifications.courseCompletion}
@@ -288,7 +288,7 @@ export function SettingsPage() {
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
                             <Label className="text-white text-sm">zkCert Minting</Label>
-                            <p className="text-white text-sm">Notifications about certificate minting status</p>
+                            <p className="text-purple-100 text-sm">Notifications about certificate minting status</p>
                           </div>
                           <Switch
                             checked={notifications.zkCertMinting}
@@ -301,7 +301,7 @@ export function SettingsPage() {
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
                             <Label className="text-white text-sm">Sats Earned</Label>
-                            <p className="text-white text-sm">Get notified when you earn sats</p>
+                            <p className="text-purple-100 text-sm">Get notified when you earn sats</p>
                           </div>
                           <Switch
                             checked={notifications.satsEarned}
@@ -314,7 +314,7 @@ export function SettingsPage() {
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
                             <Label className="text-white text-sm">Weekly Digest</Label>
-                            <p className="text-white text-sm">Weekly summary of your learning progress</p>
+                            <p className="text-purple-100 text-sm">Weekly summary of your learning progress</p>
                           </div>
                           <Switch
                             checked={notifications.weeklyDigest}
@@ -327,7 +327,7 @@ export function SettingsPage() {
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
                             <Label className="text-white text-sm">Marketing Emails</Label>
-                            <p className="text-white text-sm">Updates about new features and courses</p>
+                            <p className="text-purple-100 text-sm">Updates about new features and courses</p>
                           </div>
                           <Switch
                             checked={notifications.marketingEmails}
@@ -357,7 +357,7 @@ export function SettingsPage() {
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
                             <Label className="text-white text-sm">Show Profile</Label>
-                            <p className="text-white text-sm">Make your profile visible to other learners</p>
+                            <p className="text-purple-100 text-sm">Make your profile visible to other learners</p>
                           </div>
                           <Switch
                             checked={privacy.showProfile}
@@ -368,7 +368,7 @@ export function SettingsPage() {
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
                             <Label className="text-white text-sm">Show Progress</Label>
-                            <p className="text-white text-sm">Display your learning progress publicly</p>
+                            <p className="text-purple-100 text-sm">Display your learning progress publicly</p>
                           </div>
                           <Switch
                             checked={privacy.showProgress}
@@ -379,7 +379,7 @@ export function SettingsPage() {
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
                             <Label className="text-white text-sm">Show Certificates</Label>
-                            <p className="text-white text-sm">Allow others to view your zkCertificates</p>
+                            <p className="text-purple-100 text-sm">Allow others to view your zkCertificates</p>
                           </div>
                           <Switch
                             checked={privacy.showCertificates}
@@ -394,8 +394,8 @@ export function SettingsPage() {
                         <div className="flex items-start gap-3">
                           <Shield className="h-5 w-5 text-yellow-300 mt-0.5" />
                           <div>
-                            <p className="text-white font-medium text-sm">Privacy Notice</p>
-                            <p className="text-white text-xs mt-1">
+                            <p className="text-purple-900 font-bold text-sm">Privacy Notice</p>
+                            <p className="text-purple-800 text-xs mt-1 font-bold">
                               Your wallet address and zkCertificate proofs are always cryptographically verifiable
                               on-chain, regardless of these privacy settings.
                             </p>
@@ -414,8 +414,8 @@ export function SettingsPage() {
                     <CardContent className="space-y-4 p-4 md:p-6 pt-0">
                       <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-blue-600/20 rounded-lg border border-blue-400/30 gap-4">
                         <div>
-                          <p className="text-white font-medium text-sm">Export Data</p>
-                          <p className="text-white text-sm">Download all your learning data and certificates</p>
+                          <p className="text-purple-900 font-bold text-sm">Export Data</p>
+                          <p className="text-purple-800 text-sm font-bold">Download all your learning data and certificates</p>
                         </div>
                         <Button
                           onClick={handleExportData}
@@ -429,8 +429,8 @@ export function SettingsPage() {
 
                       <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-red-600/20 rounded-lg border border-red-400/30 gap-4">
                         <div>
-                          <p className="text-white font-medium text-sm">Delete Account</p>
-                          <p className="text-white text-sm">Permanently delete your account and all data</p>
+                          <p className="text-purple-900 font-bold text-sm">Delete Account</p>
+                          <p className="text-purple-800 text-sm font-bold">Permanently delete your account and all data</p>
                         </div>
                         <Button
                           onClick={handleDeleteAccount}
@@ -510,7 +510,7 @@ export function SettingsPage() {
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
                             <Label className="text-white text-sm">Sound Effects</Label>
-                            <p className="text-white text-sm">Play sounds for achievements and interactions</p>
+                            <p className="text-purple-100 text-sm">Play sounds for achievements and interactions</p>
                           </div>
                           <Switch
                             checked={preferences.soundEffects}

@@ -92,35 +92,35 @@ export function WalletPanel() {
               </CardHeader>
             </Card>
 
-            {/* Balance Cards - High contrast text */}
+            {/* Balance Cards - Dark purple/plum text for high contrast */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-8">
               <Card className="bg-gradient-to-br from-orange-600/30 to-yellow-600/30 border-2 border-orange-400/50 backdrop-blur-sm">
                 <CardHeader className="pb-2 p-3 md:p-6">
-                  <CardTitle className="text-white text-sm font-medium">BTC Balance</CardTitle>
+                  <CardTitle className="text-purple-900 text-sm font-bold">BTC Balance</CardTitle>
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
-                  <div className="text-lg md:text-2xl font-bold text-white">{btcBalance} BTC</div>
-                  <p className="text-white text-xs font-medium">≈ ${(btcBalance * 45000).toLocaleString()}</p>
+                  <div className="text-lg md:text-2xl font-bold text-purple-900">{btcBalance} BTC</div>
+                  <p className="text-purple-800 text-xs font-bold">≈ ${(btcBalance * 45000).toLocaleString()}</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-gradient-to-br from-blue-600/30 to-cyan-600/30 border-2 border-blue-400/50 backdrop-blur-sm">
                 <CardHeader className="pb-2 p-3 md:p-6">
-                  <CardTitle className="text-white text-sm font-medium">cBTC Balance</CardTitle>
+                  <CardTitle className="text-purple-900 text-sm font-bold">cBTC Balance</CardTitle>
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
-                  <div className="text-lg md:text-2xl font-bold text-white">{cbtcBalance} cBTC</div>
-                  <p className="text-white text-xs font-medium">Citrea Network</p>
+                  <div className="text-lg md:text-2xl font-bold text-purple-900">{cbtcBalance} cBTC</div>
+                  <p className="text-purple-800 text-xs font-bold">Citrea Network</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-gradient-to-br from-purple-600/30 to-pink-600/30 border-2 border-purple-400/50 backdrop-blur-sm sm:col-span-2 lg:col-span-1">
                 <CardHeader className="pb-2 p-3 md:p-6">
-                  <CardTitle className="text-white text-sm font-medium">Sats Earned</CardTitle>
+                  <CardTitle className="text-purple-900 text-sm font-bold">Sats Earned</CardTitle>
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
-                  <div className="text-lg md:text-2xl font-bold text-white">{satsEarned.toLocaleString()}</div>
-                  <p className="text-white text-xs font-medium">From learning rewards</p>
+                  <div className="text-lg md:text-2xl font-bold text-purple-900">{satsEarned.toLocaleString()}</div>
+                  <p className="text-purple-800 text-xs font-bold">From learning rewards</p>
                 </CardContent>
               </Card>
             </div>
@@ -172,8 +172,8 @@ export function WalletPanel() {
                   <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6 pt-0">
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 bg-orange-600/20 rounded-lg border-2 border-orange-400/50 gap-4">
                       <div className="flex-1">
-                        <p className="text-white font-medium text-sm md:text-base">Pending Rewards</p>
-                        <p className="text-white text-xl md:text-2xl font-bold">{pendingSats.toLocaleString()} sats</p>
+                        <p className="text-purple-900 font-bold text-sm md:text-base">Pending Rewards</p>
+                        <p className="text-purple-900 text-xl md:text-2xl font-bold">{pendingSats.toLocaleString()} sats</p>
                       </div>
                       <Button className="bg-orange-600 hover:bg-orange-700 text-white w-full sm:w-auto">
                         <Zap className="mr-2 h-4 w-4" />

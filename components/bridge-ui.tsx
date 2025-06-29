@@ -305,31 +305,31 @@ export function BridgeUI() {
               </Card>
             </div>
 
-            {/* Info Cards - High contrast text */}
+            {/* Info Cards - Dark purple/plum text for high contrast */}
             <div className="grid md:grid-cols-2 gap-4 md:gap-6 mt-6 md:mt-8">
               <Card className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border-blue-400/30">
                 <CardHeader className="p-4 md:p-6">
-                  <CardTitle className="text-white text-lg">About Citrea Bridge</CardTitle>
+                  <CardTitle className="text-purple-900 text-lg font-bold">About Citrea Bridge</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 p-4 md:p-6 pt-0">
-                  <p className="text-white text-sm">
+                  <p className="text-purple-900 text-sm font-medium">
                     Citrea's bridge uses zero-knowledge proofs to securely move Bitcoin to a ZK-rollup, enabling faster
                     transactions and smart contract functionality while maintaining Bitcoin's security.
                   </p>
                   <div className="space-y-2">
-                    <p className="text-white text-xs">• Trustless bridging via ZK proofs</p>
-                    <p className="text-white text-xs">• 1:1 BTC to cBTC conversion</p>
-                    <p className="text-white text-xs">• Powered by Clementine protocol</p>
+                    <p className="text-purple-800 text-xs font-bold">• Trustless bridging via ZK proofs</p>
+                    <p className="text-purple-800 text-xs font-bold">• 1:1 BTC to cBTC conversion</p>
+                    <p className="text-purple-800 text-xs font-bold">• Powered by Clementine protocol</p>
                   </div>
                 </CardContent>
               </Card>
 
               <Card className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border-purple-400/30">
                 <CardHeader className="p-4 md:p-6">
-                  <CardTitle className="text-white text-lg">Coming Soon</CardTitle>
+                  <CardTitle className="text-purple-900 text-lg font-bold">Coming Soon</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 p-4 md:p-6 pt-0">
-                  <p className="text-white text-sm">
+                  <p className="text-purple-900 text-sm font-medium">
                     Enhanced bridge features and mainnet launch are coming soon. Sign up to be notified when these
                     features become available.
                   </p>

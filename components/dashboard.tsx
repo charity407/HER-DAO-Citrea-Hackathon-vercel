@@ -101,26 +101,26 @@ export function Dashboard() {
               <p className="text-purple-200 text-sm md:text-base">Ready to continue your Bitcoin journey?</p>
             </div>
 
-            {/* Stats Grid - High contrast text */}
+            {/* Stats Grid - Dark purple/plum text for high contrast */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
               <Card className="bg-gradient-to-br from-orange-600/30 to-yellow-600/30 border-2 border-orange-400/50 backdrop-blur-sm">
                 <CardHeader className="pb-2 p-3 md:p-6">
-                  <CardTitle className="text-white text-xs md:text-sm font-medium">Sats Earned</CardTitle>
+                  <CardTitle className="text-purple-900 text-xs md:text-sm font-bold">Sats Earned</CardTitle>
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
-                  <div className="text-lg md:text-2xl font-bold text-white">{satsEarned.toLocaleString()}</div>
-                  <p className="text-white text-xs font-medium">From learning</p>
+                  <div className="text-lg md:text-2xl font-bold text-purple-900">{satsEarned.toLocaleString()}</div>
+                  <p className="text-purple-800 text-xs font-bold">From learning</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-gradient-to-br from-pink-600/30 to-purple-600/30 border-2 border-pink-400/50 backdrop-blur-sm">
                 <CardHeader className="pb-2 p-3 md:p-6">
-                  <CardTitle className="text-white text-xs md:text-sm font-medium">XP Points</CardTitle>
+                  <CardTitle className="text-purple-900 text-xs md:text-sm font-bold">XP Points</CardTitle>
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
-                  <div className="text-lg md:text-2xl font-bold text-white">{totalXP}</div>
+                  <div className="text-lg md:text-2xl font-bold text-purple-900">{totalXP}</div>
                   <Progress value={(totalXP % 1000) / 10} className="mt-2 h-1 md:h-2" />
-                  <p className="text-white text-xs font-medium">
+                  <p className="text-purple-800 text-xs font-bold">
                     {Math.round((completedModules.length / courseContent.length) * 100)}% complete
                   </p>
                 </CardContent>
@@ -128,13 +128,13 @@ export function Dashboard() {
 
               <Card className="bg-gradient-to-br from-green-600/30 to-emerald-600/30 border-2 border-green-400/50 backdrop-blur-sm">
                 <CardHeader className="pb-2 p-3 md:p-6">
-                  <CardTitle className="text-white text-xs md:text-sm font-medium">Courses</CardTitle>
+                  <CardTitle className="text-purple-900 text-xs md:text-sm font-bold">Courses</CardTitle>
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
-                  <div className="text-lg md:text-2xl font-bold text-white">
+                  <div className="text-lg md:text-2xl font-bold text-purple-900">
                     {completedModules.length}/{courseContent.length}
                   </div>
-                  <p className="text-white text-xs font-medium">
+                  <p className="text-purple-800 text-xs font-bold">
                     {Math.round((completedModules.length / courseContent.length) * 100)}% complete
                   </p>
                 </CardContent>
@@ -142,11 +142,11 @@ export function Dashboard() {
 
               <Card className="bg-gradient-to-br from-blue-600/30 to-cyan-600/30 border-2 border-blue-400/50 backdrop-blur-sm">
                 <CardHeader className="pb-2 p-3 md:p-6">
-                  <CardTitle className="text-white text-xs md:text-sm font-medium">Streak</CardTitle>
+                  <CardTitle className="text-purple-900 text-xs md:text-sm font-bold">Streak</CardTitle>
                 </CardHeader>
                 <CardContent className="p-3 md:p-6 pt-0">
-                  <div className="text-lg md:text-2xl font-bold text-white">{user?.current_streak || 1} days</div>
-                  <p className="text-white text-xs font-medium">Keep it up! 🔥</p>
+                  <div className="text-lg md:text-2xl font-bold text-purple-900">{user?.current_streak || 1} days</div>
+                  <p className="text-purple-800 text-xs font-bold">Keep it up! 🔥</p>
                 </CardContent>
               </Card>
             </div>

@@ -91,35 +91,35 @@ export function ZkCertViewer() {
               <p className="text-purple-200">Verifiable achievements powered by zero-knowledge proofs</p>
             </div>
 
-            {/* Stats - Enhanced text contrast and responsive */}
+            {/* Stats - Dark purple/plum text for high contrast */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-8">
               <Card className="bg-gradient-to-br from-orange-600/30 to-yellow-600/30 border-2 border-orange-400/50 backdrop-blur-sm">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-white text-sm font-medium">Total zkCerts</CardTitle>
+                  <CardTitle className="text-purple-900 text-sm font-bold">Total zkCerts</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-xl lg:text-2xl font-bold text-white">{zkCerts.length}</div>
-                  <p className="text-purple-800 text-xs">Verified on Bitcoin</p>
+                  <div className="text-xl lg:text-2xl font-bold text-purple-900">{zkCerts.length}</div>
+                  <p className="text-purple-800 text-xs font-bold">Verified on Bitcoin</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-gradient-to-br from-green-600/30 to-emerald-600/30 border-2 border-green-400/50 backdrop-blur-sm">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-white text-sm font-medium">Tracks Completed</CardTitle>
+                  <CardTitle className="text-purple-900 text-sm font-bold">Tracks Completed</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-xl lg:text-2xl font-bold text-white">1</div>
-                  <p className="text-purple-800 text-xs">Beginner Track</p>
+                  <div className="text-xl lg:text-2xl font-bold text-purple-900">1</div>
+                  <p className="text-purple-800 text-xs font-bold">Beginner Track</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-gradient-to-br from-purple-600/30 to-pink-600/30 border-2 border-purple-400/50 backdrop-blur-sm">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-white text-sm font-medium">Skills Mastered</CardTitle>
+                  <CardTitle className="text-purple-900 text-sm font-bold">Skills Mastered</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-xl lg:text-2xl font-bold text-white">9</div>
-                  <p className="text-purple-800 text-xs">Unique competencies</p>
+                  <div className="text-xl lg:text-2xl font-bold text-purple-900">9</div>
+                  <p className="text-purple-800 text-xs font-bold">Unique competencies</p>
                 </CardContent>
               </Card>
             </div>
