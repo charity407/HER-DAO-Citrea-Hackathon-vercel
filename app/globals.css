@@ -101,11 +101,33 @@
   animation: glow 2s ease-in-out infinite;
 }
 
-/* Enhanced responsive design */
+/* Mobile-first responsive design */
 @media (max-width: 768px) {
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+  
+  /* Ensure touch targets are at least 44px */
+  button, 
+  [role="button"], 
+  input[type="button"], 
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better spacing for mobile */
+  .space-y-2 > * + * {
+    margin-top: 0.75rem;
+  }
+  
+  .space-y-3 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .space-y-4 > * + * {
+    margin-top: 1.25rem;
   }
 }
 
@@ -121,6 +143,12 @@
 }
 
 /* Mobile-first responsive grid */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
 @media (min-width: 640px) {
   .responsive-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -130,5 +158,99 @@
 @media (min-width: 1024px) {
   .responsive-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Improved mobile navigation */
+@media (max-width: 768px) {
+  /* Hide desktop sidebar */
+  .desktop-sidebar {
+    display: none;
+  }
+  
+  /* Ensure mobile content doesn't overlap with fixed elements */
+  .mobile-content {
+    padding-top: 4rem;
+  }
+  
+  /* Better mobile form inputs */
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .hover\:bg-purple-800\/50:hover {
+    background-color: transparent;
+  }
+  
+  /* Increase touch targets */
+  button, [role="button"] {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Improved focus states for accessibility */
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgba(236, 72, 153, 0.8);
+  outline-offset: 2px;
+}
+
+/* Better mobile typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+    line-height: 1.4;
+  }
+  
+  p, span, div {
+    line-height: 1.5;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Better mobile card layouts */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Improved mobile spacing */
+@media (max-width: 768px) {
+  .mobile-p-4 {
+    padding: 1rem;
+  }
+  
+  .mobile-gap-3 {
+    gap: 0.75rem;
+  }
+  
+  .mobile-space-y-3 > * + * {
+    margin-top: 0.75rem;
   }
 }
