@@ -86,16 +86,16 @@ export function SettingsPage() {
       <div className="flex min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
         <Sidebar />
 
-        <main className="flex-1 p-4 md:p-8 min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+        <main className="flex-1 p-4 md:p-8 pt-16 md:pt-8 min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
-            <div className="mb-8">
+            <div className="mb-6 md:mb-8">
               <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">Settings</h1>
-              <p className="text-purple-200">Manage your account and learning preferences</p>
+              <p className="text-purple-200 text-sm md:text-base">Manage your account and learning preferences</p>
             </div>
 
             {/* Settings Tabs */}
-            <Tabs defaultValue="profile" className="space-y-6">
+            <Tabs defaultValue="profile" className="space-y-4 md:space-y-6">
               <TabsList className="bg-black/50 border-2 border-purple-400/50 backdrop-blur-sm p-1 w-full overflow-x-auto">
                 <TabsTrigger
                   value="profile"
@@ -136,17 +136,17 @@ export function SettingsPage() {
 
               {/* Profile Tab */}
               <TabsContent value="profile">
-                <div className="grid gap-6">
+                <div className="grid gap-4 md:gap-6">
                   <Card className="bg-black/40 border-2 border-purple-400/50 backdrop-blur-sm">
-                    <CardHeader>
-                      <CardTitle className="text-white">Profile Information</CardTitle>
-                      <CardDescription className="text-purple-100">
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-white text-lg md:text-xl">Profile Information</CardTitle>
+                      <CardDescription className="text-purple-100 text-sm">
                         Update your personal information and learning profile
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-4">
+                    <CardContent className="space-y-4 p-4 md:p-6 pt-0">
                       <div className="space-y-2">
-                        <Label htmlFor="username" className="text-white">
+                        <Label htmlFor="username" className="text-white text-sm">
                           Username
                         </Label>
                         <Input
@@ -159,7 +159,7 @@ export function SettingsPage() {
                       </div>
 
                       <div className="space-y-2">
-                        <Label className="text-white">Wallet Address</Label>
+                        <Label className="text-white text-sm">Wallet Address</Label>
                         <div className="flex items-center gap-2">
                           <Input
                             value={user?.wallet_address || ""}
@@ -172,12 +172,12 @@ export function SettingsPage() {
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <Label className="text-white">Total XP</Label>
-                          <div className="text-2xl font-bold text-orange-300">{user?.total_xp || 0}</div>
+                          <Label className="text-white text-sm">Total XP</Label>
+                          <div className="text-xl md:text-2xl font-bold text-white">{user?.total_xp || 0}</div>
                         </div>
                         <div>
-                          <Label className="text-white">Sats Earned</Label>
-                          <div className="text-2xl font-bold text-green-300">{user?.sats_earned || 0}</div>
+                          <Label className="text-white text-sm">Sats Earned</Label>
+                          <div className="text-xl md:text-2xl font-bold text-white">{user?.sats_earned || 0}</div>
                         </div>
                       </div>
 
@@ -194,26 +194,26 @@ export function SettingsPage() {
 
               {/* Wallet Tab */}
               <TabsContent value="wallet">
-                <div className="grid gap-6">
+                <div className="grid gap-4 md:gap-6">
                   <Card className="bg-black/40 border-2 border-purple-400/50 backdrop-blur-sm">
-                    <CardHeader>
-                      <CardTitle className="text-white">Wallet Settings</CardTitle>
-                      <CardDescription className="text-purple-100">
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-white text-lg md:text-xl">Wallet Settings</CardTitle>
+                      <CardDescription className="text-purple-100 text-sm">
                         Manage your Bitcoin wallet connections and preferences
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-6">
+                    <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6 pt-0">
                       <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-green-600/20 rounded-lg border-2 border-green-400/50 gap-4">
                         <div className="flex items-center gap-3">
                           <Wallet className="h-8 w-8 text-green-300" />
                           <div>
-                            <p className="text-white font-medium">Primary Wallet</p>
-                            <p className="text-green-200 text-sm">Alby Wallet - Connected</p>
+                            <p className="text-white font-medium text-sm md:text-base">Primary Wallet</p>
+                            <p className="text-white text-sm">Alby Wallet - Connected</p>
                           </div>
                         </div>
                         <Button
                           variant="outline"
-                          className="border-green-400 text-green-200 hover:bg-green-400/20 w-full md:w-auto"
+                          className="border-green-400 text-white hover:bg-green-400/20 w-full md:w-auto"
                         >
                           Disconnect
                         </Button>
@@ -222,8 +222,8 @@ export function SettingsPage() {
                       <div className="space-y-4">
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
-                            <Label className="text-white">Auto-claim Rewards</Label>
-                            <p className="text-purple-200 text-sm">Automatically claim sats when earned</p>
+                            <Label className="text-white text-sm">Auto-claim Rewards</Label>
+                            <p className="text-white text-sm">Automatically claim sats when earned</p>
                           </div>
                           <Switch
                             checked={preferences.autoClaimRewards}
@@ -234,7 +234,7 @@ export function SettingsPage() {
                         </div>
 
                         <div className="space-y-2">
-                          <Label className="text-white">Default Currency Display</Label>
+                          <Label className="text-white text-sm">Default Currency Display</Label>
                           <Select
                             value={preferences.currency}
                             onValueChange={(value) => setPreferences((prev) => ({ ...prev, currency: value }))}
@@ -262,20 +262,20 @@ export function SettingsPage() {
 
               {/* Notifications Tab */}
               <TabsContent value="notifications">
-                <div className="grid gap-6">
+                <div className="grid gap-4 md:gap-6">
                   <Card className="bg-black/40 border-2 border-purple-400/50 backdrop-blur-sm">
-                    <CardHeader>
-                      <CardTitle className="text-white">Notification Preferences</CardTitle>
-                      <CardDescription className="text-purple-100">
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-white text-lg md:text-xl">Notification Preferences</CardTitle>
+                      <CardDescription className="text-purple-100 text-sm">
                         Choose what notifications you want to receive
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-6">
+                    <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6 pt-0">
                       <div className="space-y-4">
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
-                            <Label className="text-white">Course Completion</Label>
-                            <p className="text-purple-200 text-sm">Get notified when you complete a module</p>
+                            <Label className="text-white text-sm">Course Completion</Label>
+                            <p className="text-white text-sm">Get notified when you complete a module</p>
                           </div>
                           <Switch
                             checked={notifications.courseCompletion}
@@ -287,8 +287,8 @@ export function SettingsPage() {
 
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
-                            <Label className="text-white">zkCert Minting</Label>
-                            <p className="text-purple-200 text-sm">Notifications about certificate minting status</p>
+                            <Label className="text-white text-sm">zkCert Minting</Label>
+                            <p className="text-white text-sm">Notifications about certificate minting status</p>
                           </div>
                           <Switch
                             checked={notifications.zkCertMinting}
@@ -300,8 +300,8 @@ export function SettingsPage() {
 
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
-                            <Label className="text-white">Sats Earned</Label>
-                            <p className="text-purple-200 text-sm">Get notified when you earn sats</p>
+                            <Label className="text-white text-sm">Sats Earned</Label>
+                            <p className="text-white text-sm">Get notified when you earn sats</p>
                           </div>
                           <Switch
                             checked={notifications.satsEarned}
@@ -313,8 +313,8 @@ export function SettingsPage() {
 
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
-                            <Label className="text-white">Weekly Digest</Label>
-                            <p className="text-purple-200 text-sm">Weekly summary of your learning progress</p>
+                            <Label className="text-white text-sm">Weekly Digest</Label>
+                            <p className="text-white text-sm">Weekly summary of your learning progress</p>
                           </div>
                           <Switch
                             checked={notifications.weeklyDigest}
@@ -326,8 +326,8 @@ export function SettingsPage() {
 
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
-                            <Label className="text-white">Marketing Emails</Label>
-                            <p className="text-purple-200 text-sm">Updates about new features and courses</p>
+                            <Label className="text-white text-sm">Marketing Emails</Label>
+                            <p className="text-white text-sm">Updates about new features and courses</p>
                           </div>
                           <Switch
                             checked={notifications.marketingEmails}
@@ -344,20 +344,20 @@ export function SettingsPage() {
 
               {/* Privacy Tab */}
               <TabsContent value="privacy">
-                <div className="grid gap-6">
+                <div className="grid gap-4 md:gap-6">
                   <Card className="bg-black/40 border-2 border-purple-400/50 backdrop-blur-sm">
-                    <CardHeader>
-                      <CardTitle className="text-white">Privacy Settings</CardTitle>
-                      <CardDescription className="text-purple-100">
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-white text-lg md:text-xl">Privacy Settings</CardTitle>
+                      <CardDescription className="text-purple-100 text-sm">
                         Control what information is visible to other users
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-6">
+                    <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6 pt-0">
                       <div className="space-y-4">
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
-                            <Label className="text-white">Show Profile</Label>
-                            <p className="text-purple-200 text-sm">Make your profile visible to other learners</p>
+                            <Label className="text-white text-sm">Show Profile</Label>
+                            <p className="text-white text-sm">Make your profile visible to other learners</p>
                           </div>
                           <Switch
                             checked={privacy.showProfile}
@@ -367,8 +367,8 @@ export function SettingsPage() {
 
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
-                            <Label className="text-white">Show Progress</Label>
-                            <p className="text-purple-200 text-sm">Display your learning progress publicly</p>
+                            <Label className="text-white text-sm">Show Progress</Label>
+                            <p className="text-white text-sm">Display your learning progress publicly</p>
                           </div>
                           <Switch
                             checked={privacy.showProgress}
@@ -378,8 +378,8 @@ export function SettingsPage() {
 
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
-                            <Label className="text-white">Show Certificates</Label>
-                            <p className="text-purple-200 text-sm">Allow others to view your zkCertificates</p>
+                            <Label className="text-white text-sm">Show Certificates</Label>
+                            <p className="text-white text-sm">Allow others to view your zkCertificates</p>
                           </div>
                           <Switch
                             checked={privacy.showCertificates}
@@ -394,8 +394,8 @@ export function SettingsPage() {
                         <div className="flex items-start gap-3">
                           <Shield className="h-5 w-5 text-yellow-300 mt-0.5" />
                           <div>
-                            <p className="text-yellow-200 font-medium text-sm">Privacy Notice</p>
-                            <p className="text-yellow-100 text-xs mt-1">
+                            <p className="text-white font-medium text-sm">Privacy Notice</p>
+                            <p className="text-white text-xs mt-1">
                               Your wallet address and zkCertificate proofs are always cryptographically verifiable
                               on-chain, regardless of these privacy settings.
                             </p>
@@ -407,20 +407,20 @@ export function SettingsPage() {
 
                   {/* Data Management */}
                   <Card className="bg-black/40 border-2 border-purple-400/50 backdrop-blur-sm">
-                    <CardHeader>
-                      <CardTitle className="text-white">Data Management</CardTitle>
-                      <CardDescription className="text-purple-100">Export or delete your account data</CardDescription>
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-white text-lg md:text-xl">Data Management</CardTitle>
+                      <CardDescription className="text-purple-100 text-sm">Export or delete your account data</CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-4">
+                    <CardContent className="space-y-4 p-4 md:p-6 pt-0">
                       <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-blue-600/20 rounded-lg border border-blue-400/30 gap-4">
                         <div>
-                          <p className="text-white font-medium">Export Data</p>
-                          <p className="text-blue-200 text-sm">Download all your learning data and certificates</p>
+                          <p className="text-white font-medium text-sm">Export Data</p>
+                          <p className="text-white text-sm">Download all your learning data and certificates</p>
                         </div>
                         <Button
                           onClick={handleExportData}
                           variant="outline"
-                          className="border-blue-400 text-blue-200 hover:bg-blue-400/20 w-full md:w-auto"
+                          className="border-blue-400 text-white hover:bg-blue-400/20 w-full md:w-auto"
                         >
                           <Download className="mr-2 h-4 w-4" />
                           Export
@@ -429,13 +429,13 @@ export function SettingsPage() {
 
                       <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-red-600/20 rounded-lg border border-red-400/30 gap-4">
                         <div>
-                          <p className="text-white font-medium">Delete Account</p>
-                          <p className="text-red-200 text-sm">Permanently delete your account and all data</p>
+                          <p className="text-white font-medium text-sm">Delete Account</p>
+                          <p className="text-white text-sm">Permanently delete your account and all data</p>
                         </div>
                         <Button
                           onClick={handleDeleteAccount}
                           variant="outline"
-                          className="border-red-400 text-red-200 hover:bg-red-400/20 w-full md:w-auto"
+                          className="border-red-400 text-white hover:bg-red-400/20 w-full md:w-auto"
                         >
                           <Trash2 className="mr-2 h-4 w-4" />
                           Delete
@@ -448,16 +448,16 @@ export function SettingsPage() {
 
               {/* Preferences Tab */}
               <TabsContent value="preferences">
-                <div className="grid gap-6">
+                <div className="grid gap-4 md:gap-6">
                   <Card className="bg-black/40 border-2 border-purple-400/50 backdrop-blur-sm">
-                    <CardHeader>
-                      <CardTitle className="text-white">App Preferences</CardTitle>
-                      <CardDescription className="text-purple-100">Customize your learning experience</CardDescription>
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-white text-lg md:text-xl">App Preferences</CardTitle>
+                      <CardDescription className="text-purple-100 text-sm">Customize your learning experience</CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <CardContent className="space-y-4 md:space-y-6 p-4 md:p-6 pt-0">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                         <div className="space-y-2">
-                          <Label className="text-white">Theme</Label>
+                          <Label className="text-white text-sm">Theme</Label>
                           <Select
                             value={preferences.theme}
                             onValueChange={(value) => setPreferences((prev) => ({ ...prev, theme: value }))}
@@ -483,7 +483,7 @@ export function SettingsPage() {
                         </div>
 
                         <div className="space-y-2">
-                          <Label className="text-white">Language</Label>
+                          <Label className="text-white text-sm">Language</Label>
                           <Select
                             value={preferences.language}
                             onValueChange={(value) => setPreferences((prev) => ({ ...prev, language: value }))}
@@ -509,8 +509,8 @@ export function SettingsPage() {
                       <div className="space-y-4">
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                           <div>
-                            <Label className="text-white">Sound Effects</Label>
-                            <p className="text-purple-200 text-sm">Play sounds for achievements and interactions</p>
+                            <Label className="text-white text-sm">Sound Effects</Label>
+                            <p className="text-white text-sm">Play sounds for achievements and interactions</p>
                           </div>
                           <Switch
                             checked={preferences.soundEffects}
@@ -525,16 +525,16 @@ export function SettingsPage() {
 
                   {/* Learning Preferences */}
                   <Card className="bg-black/40 border-2 border-purple-400/50 backdrop-blur-sm">
-                    <CardHeader>
-                      <CardTitle className="text-white">Learning Preferences</CardTitle>
-                      <CardDescription className="text-purple-100">
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-white text-lg md:text-xl">Learning Preferences</CardTitle>
+                      <CardDescription className="text-purple-100 text-sm">
                         Customize your educational experience
                       </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-4">
+                    <CardContent className="space-y-4 p-4 md:p-6 pt-0">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <Label className="text-white">Difficulty Level</Label>
+                          <Label className="text-white text-sm">Difficulty Level</Label>
                           <Select defaultValue="intermediate">
                             <SelectTrigger className="bg-purple-900/50 border-2 border-purple-400/50 text-white">
                               <SelectValue />
@@ -548,7 +548,7 @@ export function SettingsPage() {
                         </div>
 
                         <div>
-                          <Label className="text-white">Quiz Attempts</Label>
+                          <Label className="text-white text-sm">Quiz Attempts</Label>
                           <Select defaultValue="unlimited">
                             <SelectTrigger className="bg-purple-900/50 border-2 border-purple-400/50 text-white">
                               <SelectValue />
@@ -566,33 +566,33 @@ export function SettingsPage() {
 
                   {/* About */}
                   <Card className="bg-black/40 border-2 border-purple-400/50 backdrop-blur-sm">
-                    <CardHeader>
-                      <CardTitle className="text-white">About Proof of Learn</CardTitle>
+                    <CardHeader className="p-4 md:p-6">
+                      <CardTitle className="text-white text-lg md:text-xl">About Proof of Learn</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-4">
+                    <CardContent className="space-y-4 p-4 md:p-6 pt-0">
                       <div className="grid grid-cols-2 gap-4 text-sm">
                         <div>
-                          <p className="text-purple-200">Version</p>
-                          <p className="text-white font-mono">v1.0.0</p>
+                          <p className="text-white text-sm">Version</p>
+                          <p className="text-white font-mono text-sm">v1.0.0</p>
                         </div>
                         <div>
-                          <p className="text-purple-200">Network</p>
-                          <p className="text-white">Bitcoin Testnet</p>
+                          <p className="text-white text-sm">Network</p>
+                          <p className="text-white text-sm">Bitcoin Testnet</p>
                         </div>
                         <div>
-                          <p className="text-purple-200">zkRollup</p>
-                          <p className="text-white">Citrea Testnet</p>
+                          <p className="text-white text-sm">zkRollup</p>
+                          <p className="text-white text-sm">Citrea Testnet</p>
                         </div>
                         <div>
-                          <p className="text-purple-200">Build</p>
-                          <p className="text-white font-mono">2024.01.25</p>
+                          <p className="text-white text-sm">Build</p>
+                          <p className="text-white font-mono text-sm">2024.01.25</p>
                         </div>
                       </div>
 
                       <div className="flex flex-wrap gap-2">
                         <Button
                           variant="outline"
-                          className="border-purple-400 text-purple-200 hover:bg-purple-400/20"
+                          className="border-purple-400 text-white hover:bg-purple-400/20"
                           size="sm"
                         >
                           <ExternalLink className="mr-2 h-4 w-4" />
@@ -600,7 +600,7 @@ export function SettingsPage() {
                         </Button>
                         <Button
                           variant="outline"
-                          className="border-purple-400 text-purple-200 hover:bg-purple-400/20"
+                          className="border-purple-400 text-white hover:bg-purple-400/20"
                           size="sm"
                         >
                           <ExternalLink className="mr-2 h-4 w-4" />
@@ -608,7 +608,7 @@ export function SettingsPage() {
                         </Button>
                         <Button
                           variant="outline"
-                          className="border-purple-400 text-purple-200 hover:bg-purple-400/20"
+                          className="border-purple-400 text-white hover:bg-purple-400/20"
                           size="sm"
                         >
                           <ExternalLink className="mr-2 h-4 w-4" />
