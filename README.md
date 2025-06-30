@@ -6,8 +6,7 @@ A modular, open-source Bitcoin education platform that delivers verifiable learn
 
 ---
 ## WEB APP LINK
-https://v0-use-uploaded-assets-359yuj654.vercel.app/
-
+https://v0-use-uploaded-assets-charleyshiks-gmailcoms-projects.vercel.app/
 ##  Features
 
 ###  Interactive Learning
