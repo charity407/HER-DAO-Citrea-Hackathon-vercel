@@ -256,19 +256,16 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ### Environment Variables
 Make sure to set all required environment variables:
-- `NEXT_PUBLIC_DYNAMIC_ENVIRONMENT_ID`
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - Other configuration as needed
 ## Web App Link
-https://v0-use-uploaded-assets-charleyshiks-gmailcoms-projects.vercel.app/
-## 📄 License
+https://v0-use-uploaded-assets-359yuj654.vercel.app/
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- **Dynamic Labs** for the excellent wallet authentication SDK
 - **HER DAO** for organizing the Citrea Hackathon
 - **Citrea Team** for the innovative Bitcoin L2 solution
 - **Bitcoin Community** for the educational content and inspiration
