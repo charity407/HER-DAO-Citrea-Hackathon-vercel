@@ -260,7 +260,8 @@ Make sure to set all required environment variables:
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - Other configuration as needed
-
+## Web App Link
+https://v0-use-uploaded-assets-charleyshiks-gmailcoms-projects.vercel.app/
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
